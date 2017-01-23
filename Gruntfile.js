@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 module.exports = function(grunt) {
 	grunt.initConfig({
 		jshint: {
@@ -20,7 +21,17 @@ module.exports = function(grunt) {
 							presets: ['es2015']
 						}
 					}]
-				}
+				},
+				plugins: [
+					new webpack.optimize.UglifyJsPlugin({
+			  		compress: {
+			  			warnings: false,
+			  		},
+			  		output: {
+			  			comments: false,
+			  		},
+			  	})
+			  ]
 			}
 		},
 
