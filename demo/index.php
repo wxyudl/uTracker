@@ -24,6 +24,13 @@
     <br />
     <a style="display: block; text-align: center;" href="http://www.baidu.com">百度一下你就知道了</a>
     <button type="button" name="button">点击购买</button>
+    <script type="text/javascript">
+      var ipInfoObj = {};
+      function ipInfo(d){
+        ipInfoObj = d;
+      }
+    </script>
+    <script type="text/javascript" src="http://ip-api.com/json/?callback=ipInfo"></script>
     <script type="text/javascript" src="../build/utracker.bundle.js"></script>
     <script type="text/javascript">
       ut('pageview', 'UT-1001');
