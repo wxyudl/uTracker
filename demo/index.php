@@ -33,9 +33,9 @@
     <script type="text/javascript" src="http://ip-api.com/json/?callback=ipInfo"></script>
     <script type="text/javascript" src="../build/utracker.bundle.js"></script>
     <script type="text/javascript">
-      ut('pageview', 'UT-1001');
-      ut('hotspots', 'UT-1002');
-      ut('event', 'UT-1003');
+      ut('pageview', 'Rep_Page');
+      ut('hotspots', 'Rep_Page');
+      ut('event', 'Rep_Page');
     </script>
   </body>
 </html>
