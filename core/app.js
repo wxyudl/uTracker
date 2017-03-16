@@ -1,31 +1,30 @@
 /*jshint esversion: 6 */
-import pv from './pageview';
-import hs from './hotspots';
-import ev from './event';
+import pageview from './pageview';
+import hotspots from './hotspots';
+import event from './event';
 
-(function(){
-  class UT{
-    constructor(cat, uid){
-      switch(cat){
-        case 'pageview':
-          pv(uid);
-          break;
-        case 'hotspots':
-          hs(uid);
-          break;
-        case 'event':
-          ev(uid);
-          break;
-        default:
-          pv(uid);
-          break;
-      }
+let analyzer = {
+    pageview: pageview,
+    hotspots: hotspots,
+    event : event
+};
+
+(function(){	
+    class UT{
+        constructor(catArr, uid){
+            if(Array.isArray(catArr)){
+                for(let cat of catArr){
+                    analyzer[cat](uid);
+                }
+            }else{
+                throw TypeError('First parameter must be an array!');
+            }
+        }
     }
-  }
 
-  let uTracker = function(cat, uid){
-    return new UT(cat, uid);
-  };
+    let uTracker = function(cat, uid){
+        return new UT(cat, uid);
+    };
 
-  window.ut = uTracker;
+    window.ut = uTracker;
 })();
